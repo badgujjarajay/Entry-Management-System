@@ -20,6 +20,10 @@ const adminSchema = new mongoose.Schema({
         required: true,
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Email number is not valid."]
     },
+    password: {
+        type: String,
+        required: true
+    },
     address: {
         type: String,
         required: true,
