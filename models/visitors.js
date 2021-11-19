@@ -10,7 +10,6 @@ const visitorSchema = new mongoose.Schema({
     },
     phone: {
         type: Number,
-        unique: true,
         required: true,
         match: [/^\d{10}$/, "Phone number is not valid."]
     },
@@ -35,8 +34,7 @@ const visitorSchema = new mongoose.Schema({
     },
     host_alloted: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Host",
-        required: true
+        ref: "Host"
     },
     checked_in: {
         type: Boolean,
