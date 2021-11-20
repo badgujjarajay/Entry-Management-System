@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Host = require("../models/hosts");
 const { getRenderData } = require("../controllers/utils");
-const { checkinVisitor } = require("../controllers/visitor");
+const { checkinVisitor, checkoutVisitor } = require("../controllers/visitor");
 
 router.get("/checkin", async (req, res) => {
     const hosts = await Host.find();
@@ -13,5 +13,6 @@ router.get("/checkout", async (req, res) => {
 });
 
 router.post("/checkin", checkinVisitor);
+router.post("/checkout", checkoutVisitor);
 
 module.exports = router;

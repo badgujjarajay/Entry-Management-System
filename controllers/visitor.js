@@ -32,3 +32,32 @@ module.exports.checkinVisitor = async (req, res) => {
         res.redirect("/visitor/checkin");
     }
 }
+
+module.exports.checkoutVisitor = async (req, res) => {
+    try {
+        const visitor = await Visitor.findOne({ email: req.body.email, checked_in: true }).populate("host_alloted");
+        if (!visitor) {
+            req.flash("error", "The visitor is not checked-in");
+            return res.redirect("/visitor/checkout");
+        }
+        const host = await Host.findById(visitor.host_alloted);
+        if (!host) {
+            req.flash("error", "The host cannot be found");
+            return res.redirect("/visitor/checkout");
+        }
+        visitor.check_out_time = new Date().toString();
+        visitor.checked_in = false;
+        host.visitor_count -= 1;
+
+        await visitor.save();
+        await host.save();
+        req.flash(
+            "success",
+            `${visitor.name} checked out at ${visitor.check_out_time}`
+        );
+        res.redirect("/visitor/checkout");
+    } catch (err) {
+        req.flash("error", "Couldn't checkout visitor - " + err.message);
+        res.redirect("/visitor/checkout");
+    }
+}
