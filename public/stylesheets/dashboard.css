@@ -15,7 +15,6 @@ h1 {
   color: #f70090;
 }
 
-
 .container th h1 {
   font-weight: bold;
   font-size: 1.5em;
@@ -32,19 +31,11 @@ h1 {
 }
 
 .container {
-  text-align: left;
-  overflow: hidden;
-  width: 80%;
-  margin: 0 auto;
-  display: table;
-  padding: 0 0 8em 0;
-  width: 1000px;
-  height: 700px;
   margin: 2% auto;
   position: relative;
   overflow: hidden;
   background: #fbfbfb;
-  box-shadow: 2px 18px 70px 0px #9d9d9d;
+  box-shadow: 2px 18px 50px 0px #9d9d9d;
 }
 
 .container td,
@@ -59,7 +50,6 @@ h1 {
 .container tr {
   background-color: rgba(211, 202, 202, 0.164);
 }
-
 
 .container th {
   background-color: #f70090;
@@ -76,5 +66,3 @@ h1 {
   -moz-box-shadow: 0 6px 6px -6px #d8e0f5;
   box-shadow: 0 6px 6px -6px #ecf1ff;
 }
-
-

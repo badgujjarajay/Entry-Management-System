@@ -22,7 +22,7 @@ module.exports.checkinVisitor = async (req, res) => {
         visitor.host_alloted = host._id;
         host.visitor_count += 1;
         visitor.checked_in = true;
-        visitor.check_in_time = new Date(visitor.createdAt).toString();
+        visitor.check_in_time = new Date(visitor.createdAt).toLocaleString();
         await visitor.save();
         await host.save();
         req.flash("success", `Visitor ${visitor.name} checked in`);
@@ -45,7 +45,7 @@ module.exports.checkoutVisitor = async (req, res) => {
             req.flash("error", "The host cannot be found");
             return res.redirect("/visitor/checkout");
         }
-        visitor.check_out_time = new Date().toString();
+        visitor.check_out_time = new Date().toLocaleString();
         visitor.checked_in = false;
         host.visitor_count -= 1;
 

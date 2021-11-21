@@ -6,5 +6,6 @@ router.get("/", (req, res) => {
 
 router.use("/visitor", require("./visitor"));
 router.use("/host", require("./host"));
+router.use("/dashboard", require("./dashboard"));
 
 module.exports = router;
