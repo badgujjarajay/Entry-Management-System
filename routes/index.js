@@ -7,5 +7,6 @@ router.get("/", (req, res) => {
 router.use("/visitor", require("./visitor"));
 router.use("/host", require("./host"));
 router.use("/dashboard", require("./dashboard"));
+router.use("/admin", require("./admin"));
 
 module.exports = router;
